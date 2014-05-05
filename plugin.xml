@@ -21,6 +21,7 @@
         </config-file>
 
         <!-- iSMP Frameworks -->
+        <framework src="SystemConfiguration.framework" />
         <framework src="CFNetwork.framework" />
         <framework src="ExternalAccessory.framework" />
         <framework src="src/ios/frameworks/iSMP.framework" custom="true" />

@@ -4,15 +4,38 @@
         "uninstalled": []
     },
     "config_munge": {
-        "config.xml": {
-            "/*": {
-                "<feature name=\"iSMP\"><param name=\"ios-package\" value=\"CDViSMPPlugin\" /></feature>": 1
+        "files": {
+            "framework": {
+                "parents": {
+                    "CFNetwork.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "ExternalAccessory.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"iSMP\"><param name=\"ios-package\" value=\"CDViSMPPlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },
     "installed_plugins": {
         "com.tlantic.plugins.ismp": {
-            "PACKAGE_NAME": "com.tlantic.demo.ingenico"
+            "PACKAGE_NAME": "com.tlantic.demo.ismp"
         }
     },
     "dependent_plugins": {}
