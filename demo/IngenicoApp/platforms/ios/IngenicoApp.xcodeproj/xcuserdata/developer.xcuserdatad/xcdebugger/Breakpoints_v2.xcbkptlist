@@ -23,11 +23,11 @@
                   symbolName = "-[iSMP rPurchase]"
                   moduleName = "IngenicoApp"
                   urlString = "file:///Users/developer/Documents/tlantic/cdv-ismp-plugin/demo/IngenicoApp/platforms/ios/IngenicoApp/Plugins/com.tlantic.plugins.ismp/iSMP.h"
-                  timestampString = "421076539.684013"
+                  timestampString = "421086979.53527"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "8"
-                  endingLineNumber = "8"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
@@ -37,11 +37,11 @@
                   symbolName = "-[iSMP setRPurchase:]"
                   moduleName = "IngenicoApp"
                   urlString = "file:///Users/developer/Documents/tlantic/cdv-ismp-plugin/demo/IngenicoApp/platforms/ios/IngenicoApp/Plugins/com.tlantic.plugins.ismp/iSMP.h"
-                  timestampString = "421076539.684467"
+                  timestampString = "421086979.535632"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "8"
-                  endingLineNumber = "8"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9"
                   offsetFromSymbolStart = "22">
                </Location>
             </Locations>

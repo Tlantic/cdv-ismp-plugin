@@ -20,6 +20,17 @@
             </feature>
         </config-file>
 
+        <!--this need to be added to the .plist file-->
+        <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+            <array>
+                <string>com.ingenico.easypayemv.printer</string>
+                <string>com.ingenico.easypayemv.barcodereader</string>
+                <string>com.ingenico.easypayemv.spm-transaction</string>
+                <string>com.ingenico.easypayemv.spm-configuration</string>
+                <string>com.ingenico.easypayemv.spm-networkaccess</string>
+            </array>
+        </config-file>
+
         <!-- iSMP Frameworks -->
         <framework src="SystemConfiguration.framework" />
         <framework src="CFNetwork.framework" />
