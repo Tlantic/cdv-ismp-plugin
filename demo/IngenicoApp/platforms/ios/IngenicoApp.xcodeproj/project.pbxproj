@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -25,6 +26,7 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		3F7C7662830746BA844F95AF /* iSMP.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2AACBE68D448689ABC7CB2 /* iSMP.m */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
@@ -37,8 +39,13 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		8BAF321C19182202009D8771 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAF321B19182202009D8771 /* SystemConfiguration.framework */; };
+		822B4F5ED20C44E08C7ABDF9 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0DFAA323FE454D8C5067EE /* ExternalAccessory.framework */; };
+		ACF5DA104F8D44DDB62F1321 /* CDViSMPPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E98898F85A434EA3D39FAC /* CDViSMPPlugin.m */; };
+		B333B76BAD654C05AED726B2 /* iSMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7ED810B99924244BF718D70 /* iSMP.framework */; };
+		C13C21E134D44780A499B434 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AAF32206F084BBEADEC0AB9 /* CFNetwork.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		DD4F58E5888044C8940B11A3 /* iSMP.RPurchase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36BD6EA3B454C8BA437BA41 /* iSMP.RPurchase.framework */; };
+		DE1B0E6DB4BE4B1EAFE4C383 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7C7C645F5F454FBD1B499A /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0DFBB9698A0B4EFEAB890075 /* iSMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iSMP.m; path = com.tlantic.plugins.ismp/iSMP.m; sourceTree = "<group>"; };
+		143D45C45574411B8ADA349D /* iSMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iSMP.h; path = com.tlantic.plugins.ismp/iSMP.h; sourceTree = "<group>"; };
+		19E98898F85A434EA3D39FAC /* CDViSMPPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDViSMPPlugin.m; path = com.tlantic.plugins.ismp/CDViSMPPlugin.m; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* IngenicoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IngenicoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,11 +94,9 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* IngenicoApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IngenicoApp-Prefix.pch"; sourceTree = "<group>"; };
-		369FDFADC598440CA65538D4 /* iSMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iSMP.h; path = com.tlantic.plugins.ismp/iSMP.h; sourceTree = "<group>"; };
-		539BBE8E93734A3A8D78386E /* CFNetwork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5AAF32206F084BBEADEC0AB9 /* CFNetwork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		77C671972E4D432E85708362 /* CDViSMPPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDViSMPPlugin.h; path = com.tlantic.plugins.ismp/CDViSMPPlugin.h; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -101,16 +107,17 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
-		8BAF321B19182202009D8771 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* IngenicoApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "IngenicoApp-Info.plist"; path = "../IngenicoApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		A347948744FE4A2A8D9A9ACA /* iSMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iSMP.framework; path = IngenicoApp/Plugins/com.tlantic.plugins.ismp/iSMP.framework; sourceTree = "<group>"; };
-		AB60AE772B9A41379CD0E27E /* CDViSMPPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDViSMPPlugin.m; path = com.tlantic.plugins.ismp/CDViSMPPlugin.m; sourceTree = "<group>"; };
-		CB66277562404FB5A6969944 /* ExternalAccessory.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		C7ED810B99924244BF718D70 /* iSMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iSMP.framework; path = IngenicoApp/Plugins/com.tlantic.plugins.ismp/iSMP.framework; sourceTree = "<group>"; };
+		CE2AACBE68D448689ABC7CB2 /* iSMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iSMP.m; path = com.tlantic.plugins.ismp/iSMP.m; sourceTree = "<group>"; };
+		CE7C7C645F5F454FBD1B499A /* SystemConfiguration.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		DBF27174F900489D9D1C599A /* CDViSMPPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDViSMPPlugin.h; path = com.tlantic.plugins.ismp/CDViSMPPlugin.h; sourceTree = "<group>"; };
+		DD0DFAA323FE454D8C5067EE /* ExternalAccessory.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		E36BD6EA3B454C8BA437BA41 /* iSMP.RPurchase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iSMP.RPurchase.framework; path = IngenicoApp/Plugins/com.tlantic.plugins.ismp/iSMP.RPurchase.framework; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
-		EEE9ABAF46E24AEF923FB363 /* iSMP.RPurchase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iSMP.RPurchase.framework; path = IngenicoApp/Plugins/com.tlantic.plugins.ismp/iSMP.RPurchase.framework; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = IngenicoApp/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,12 +126,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BAF321C19182202009D8771 /* SystemConfiguration.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
+				B333B76BAD654C05AED726B2 /* iSMP.framework in Frameworks */,
+				DD4F58E5888044C8940B11A3 /* iSMP.RPurchase.framework in Frameworks */,
+				DE1B0E6DB4BE4B1EAFE4C383 /* SystemConfiguration.framework in Frameworks */,
+				C13C21E134D44780A499B434 /* CFNetwork.framework in Frameworks */,
+				822B4F5ED20C44E08C7ABDF9 /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,15 +225,15 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8BAF321B19182202009D8771 /* SystemConfiguration.framework */,
 				5AEE5B34173C68D80009041E /* CoreLocation.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
-				A347948744FE4A2A8D9A9ACA /* iSMP.framework */,
-				EEE9ABAF46E24AEF923FB363 /* iSMP.RPurchase.framework */,
-				539BBE8E93734A3A8D78386E /* CFNetwork.framework */,
-				CB66277562404FB5A6969944 /* ExternalAccessory.framework */,
+				C7ED810B99924244BF718D70 /* iSMP.framework */,
+				E36BD6EA3B454C8BA437BA41 /* iSMP.RPurchase.framework */,
+				CE7C7C645F5F454FBD1B499A /* SystemConfiguration.framework */,
+				5AAF32206F084BBEADEC0AB9 /* CFNetwork.framework */,
+				DD0DFAA323FE454D8C5067EE /* ExternalAccessory.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -238,10 +249,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				AB60AE772B9A41379CD0E27E /* CDViSMPPlugin.m */,
-				0DFBB9698A0B4EFEAB890075 /* iSMP.m */,
-				77C671972E4D432E85708362 /* CDViSMPPlugin.h */,
-				369FDFADC598440CA65538D4 /* iSMP.h */,
+				19E98898F85A434EA3D39FAC /* CDViSMPPlugin.m */,
+				CE2AACBE68D448689ABC7CB2 /* iSMP.m */,
+				DBF27174F900489D9D1C599A /* CDViSMPPlugin.h */,
+				143D45C45574411B8ADA349D /* iSMP.h */,
 			);
 			name = Plugins;
 			path = IngenicoApp/Plugins;
@@ -436,6 +447,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				ACF5DA104F8D44DDB62F1321 /* CDViSMPPlugin.m in Sources */,
+				3F7C7662830746BA844F95AF /* iSMP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

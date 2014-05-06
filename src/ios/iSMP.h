@@ -7,6 +7,7 @@
 
 // iSMP fw instance
 @property (nonatomic, strong) iSMP_RPurchase_framework      *rPurchase;
+@property XMLWriter* xmlWriter;
 
 // Network Gateway
 @property (nonatomic, retain) ICNetwork * network;
@@ -15,4 +16,6 @@
 
 -(id) initTerminal;
 -(void)setConnectionState:(BOOL)state;
+-(BOOL)getConnectionState;
+
 @end

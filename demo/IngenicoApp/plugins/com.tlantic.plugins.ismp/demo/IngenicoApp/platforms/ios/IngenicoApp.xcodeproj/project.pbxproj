@@ -5,9 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
-		12B08C482D5A426D93C09A61 /* iSMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBB9698A0B4EFEAB890075 /* iSMP.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
@@ -27,10 +25,8 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
-		472FE77BCD8D44429E666018 /* CDViSMPPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AB60AE772B9A41379CD0E27E /* CDViSMPPlugin.m */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
-		7CAC9658EA834128A4B45792 /* iSMP.RPurchase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE9ABAF46E24AEF923FB363 /* iSMP.RPurchase.framework */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
 		7E7966E01810823500FA85AD /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
@@ -42,10 +38,7 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		8BAF321C19182202009D8771 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAF321B19182202009D8771 /* SystemConfiguration.framework */; };
-		B2FAED027AA94E7F815F72DC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB66277562404FB5A6969944 /* ExternalAccessory.framework */; };
-		C684D1992C0A4B10AA6197A4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539BBE8E93734A3A8D78386E /* CFNetwork.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		E12780E1D59E41DA8F8C5F99 /* iSMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347948744FE4A2A8D9A9ACA /* iSMP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,10 +125,6 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
-				E12780E1D59E41DA8F8C5F99 /* iSMP.framework in Frameworks */,
-				7CAC9658EA834128A4B45792 /* iSMP.RPurchase.framework in Frameworks */,
-				C684D1992C0A4B10AA6197A4 /* CFNetwork.framework in Frameworks */,
-				B2FAED027AA94E7F815F72DC /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,8 +436,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				472FE77BCD8D44429E666018 /* CDViSMPPlugin.m in Sources */,
-				12B08C482D5A426D93C09A61 /* iSMP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
