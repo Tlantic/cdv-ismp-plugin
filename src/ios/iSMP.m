@@ -2,7 +2,7 @@
 
 @implementation iSMP: NSObject
 
-@synthesize xmlWriter;
+@synthesize xWriter;
 @synthesize rPurchase;
 @synthesize network;
 @synthesize control;
@@ -51,6 +51,32 @@
 -(BOOL)getConnectionState
 {
     return connected;
+}
+
+
+// TERMINAL STATUS
+-(BOOL) getStatus
+{
+    int exitCode = 0;
+    statusDetails = nil;
+    xWriter= [[XMLWriter alloc] init];
+
+    NSLog(@"- Sending Terminal Status to iSMP...");
+    
+    // sending request
+    exitCode = [rPurchase fDll_RP_TerminalStatus:@"03" cECRModel:@"MM" cECRSpecVersion:@"0114" xmlWriter:xWriter iMaxXMLResponseSize:65536];
+    NSLog(@"- Terminal status received: %d", exitCode);
+    
+    // storing details
+    statusDetails = [xWriter toString];
+    NSLog(@"- Received buffer: %@", statusDetails);
+    
+    return (exitCode == 0 ? YES : NO);
+}
+
+-(NSString *) getStatusDetails
+{
+    return statusDetails;
 }
 
 

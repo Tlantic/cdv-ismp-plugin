@@ -65,7 +65,35 @@
 {
     // running in background to avoid thread locks
     [self.commandDelegate runInBackground:^{
+ 
+        CDVPluginResult* result = nil;
+        CDVCommandStatus status;
+        NSString* details = nil;
+ 
+        NSLog(@"- Checking terminal connection...");
+        if ([terminal getConnectionState]) {
         
+            // getting status
+            NSLog(@"- Getting status from terminal...");
+            
+            if ([terminal getStatus]) {
+                status = CDVCommandStatus_OK;
+            } else {
+                status = CDVCommandStatus_ERROR;
+            }
+        
+            // getting returned info
+            details = [terminal getStatusDetails];
+            result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+            
+        } else {
+            NSLog(@"- Terminal is not connected!");
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Terminal is not connected!"];
+            
+        }
+        
+        // resolving cordova callback stack
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }];
 }
 

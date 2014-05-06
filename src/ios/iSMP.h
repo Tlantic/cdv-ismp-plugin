@@ -3,11 +3,12 @@
 @interface iSMP : NSObject<ICISMPDeviceDelegate, ICNetworkDelegate, ICAdministrationDelegate> {
 @private
     BOOL connected;
+    NSString* statusDetails;
 }
 
 // iSMP fw instance
 @property (nonatomic, strong) iSMP_RPurchase_framework      *rPurchase;
-@property XMLWriter* xmlWriter;
+@property XMLWriter* xWriter;
 
 // Network Gateway
 @property (nonatomic, retain) ICNetwork * network;
@@ -17,5 +18,8 @@
 -(id) initTerminal;
 -(void)setConnectionState:(BOOL)state;
 -(BOOL)getConnectionState;
+
+-(BOOL) getStatus;
+-(NSString *) getStatusDetails;
 
 @end
