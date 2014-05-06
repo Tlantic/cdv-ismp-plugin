@@ -34,7 +34,7 @@
                 <p class="event received">Device is Ready</p>
             </div>
             <br>
-            <button onclick="connect()">Connect</button><br><br>
+            <button onclick="load()">Load terminal</button><br><br>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -45,8 +45,8 @@
                 console.log(d);
             }
             
-            function connect () {
-                window.tlantic.plugins.ismp.iSMP.connect()
+            function load () {
+                window.tlantic.plugins.ismp.load()
             }
         </script>
     </body>
