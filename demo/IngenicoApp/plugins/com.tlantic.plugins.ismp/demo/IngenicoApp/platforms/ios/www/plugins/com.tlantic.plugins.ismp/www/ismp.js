@@ -9,8 +9,8 @@ function iSMP(){
 }
 
 // connect method
-SSH.prototype.connect = function (successCallback, errorCallback) {
-	exec(successCallback, errorCallback, this.pluginRef, 'connect', []);
+iSMP.prototype.load = function (successCallback, errorCallback) {
+	exec(successCallback, errorCallback, this.pluginRef, 'loadTerminal', []);
 };
 
 module.exports = new iSMP();
