@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0AC3A39BBD0649CDBED83B02 /* iSMP.RPurchase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFDEACD490E4E45B87EB7A8 /* iSMP.RPurchase.framework */; };
 		0C4E846602A2442FB8973145 /* iSMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A29136E5044BC1B961137E /* iSMP.m */; };
@@ -28,7 +27,6 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
-		569D61ACF397459E813F0F0C /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD736A72D414F03958BB23A /* CDVNotification.m */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		795DB79432624E5E8C1D786F /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3929958EE89478EB02230EE /* ExternalAccessory.framework */; };
@@ -44,9 +42,7 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		831ED775281E4DB68A1B0351 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 115CEF7A8E8E4E95A22193E5 /* CFNetwork.framework */; };
-		8811412A0557403E9B2FE86A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84805D87D044E6DB7957656 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A07095CF46CB48EE821E5C67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243BF32FF9164A5B93BC17E6 /* SystemConfiguration.framework */; };
-		B88AAD3466954347AD34B1C6 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A145185B04147DB916104CC /* CDVNotification.bundle */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F507615386B54691A2650412 /* iSMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9897E9E77BF48A69DF902FF /* iSMP.framework */; };
 /* End PBXBuildFile section */
@@ -140,7 +136,6 @@
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
 				F507615386B54691A2650412 /* iSMP.framework in Frameworks */,
 				0AC3A39BBD0649CDBED83B02 /* iSMP.RPurchase.framework in Frameworks */,
-				8811412A0557403E9B2FE86A /* AudioToolbox.framework in Frameworks */,
 				A07095CF46CB48EE821E5C67 /* SystemConfiguration.framework in Frameworks */,
 				831ED775281E4DB68A1B0351 /* CFNetwork.framework in Frameworks */,
 				795DB79432624E5E8C1D786F /* ExternalAccessory.framework in Frameworks */,
@@ -428,7 +423,6 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
-				B88AAD3466954347AD34B1C6 /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +456,6 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				7B557C2A00AC4FA9AF2FA1D9 /* CDViSMPPlugin.m in Sources */,
 				0C4E846602A2442FB8973145 /* iSMP.m in Sources */,
-				569D61ACF397459E813F0F0C /* CDVNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
