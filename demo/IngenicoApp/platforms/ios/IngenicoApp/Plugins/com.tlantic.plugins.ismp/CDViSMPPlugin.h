@@ -1,7 +1,7 @@
 #import <Cordova/CDV.h>
 #import "iSMP.h"
 
-@interface CDViSMPPlugin : CDVPlugin
+@interface CDViSMPPlugin : CDVPlugin <iSMPDelegate>
 
 @property(nonatomic, retain) iSMP * terminal;
 

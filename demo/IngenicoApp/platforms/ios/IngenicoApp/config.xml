@@ -22,6 +22,9 @@
     <feature name="iSMP">
         <param name="ios-package" value="CDViSMPPlugin" />
     </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
     <name>IngenicoApp</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

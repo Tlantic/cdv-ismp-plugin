@@ -24,6 +24,12 @@
                             "xml": "false",
                             "count": 1
                         }
+                    ],
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -32,6 +38,10 @@
                     "/*": [
                         {
                             "xml": "<feature name=\"iSMP\"><param name=\"ios-package\" value=\"CDViSMPPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -55,6 +65,9 @@
     },
     "installed_plugins": {
         "com.tlantic.plugins.ismp": {
+            "PACKAGE_NAME": "com.tlantic.demo.ismp"
+        },
+        "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "com.tlantic.demo.ismp"
         }
     },

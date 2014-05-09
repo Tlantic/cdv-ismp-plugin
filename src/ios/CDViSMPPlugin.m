@@ -24,6 +24,7 @@
             // creating terminal instance
             NSLog(@"- Creating terminal instance...");
             terminal = [[iSMP alloc] initTerminal];
+            [terminal setDelegate:self];
 
             NSLog(@"- Instance has been created successfully!");
             result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -95,6 +96,16 @@
         // resolving cordova callback stack
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }];
+}
+
+-(void) dispatchConnectionStatus :(BOOL) status {
+    
+    // handling escape chars
+    NSString *param = (status ? @"YES" : @"NO");
+    
+    // relay to webview
+    NSString *receiveHook= [NSString stringWithFormat:@"window.tlantic.plugins.ismp.yieldConnectionChange('%@');", param];
+    [self writeJavascript:receiveHook];
 }
 
 @end

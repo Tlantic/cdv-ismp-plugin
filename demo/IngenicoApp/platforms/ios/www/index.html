@@ -44,22 +44,26 @@
             app.initialize();
             
             function stub(d) {
-                console.log(d);
                 alert(d);
             }
         
-            function load () {
-                window.tlantic.plugins.ismp.load(stub, stub);
-            }
+        function load () {
+            window.tlantic.plugins.ismp.load(stub, stub);
+            document.addEventListener(window.tlantic.plugins.ismp.connectionEvent, function (e) {
+                alert('EVENT RECEIVED ' + e.status);
+            });
+        }
         
-            function isConnected (){
-                window.tlantic.plugins.ismp.isConnected(stub, stub);
-            }
+        function isConnected (){
+            window.tlantic.plugins.ismp.isConnected(stub, stub);
+        }
         
-            function getStatus (){
-                window.tlantic.plugins.ismp.getStatus(stub, stub);
-            }
+        function getStatus (){
+            window.tlantic.plugins.ismp.getStatus(stub, stub);
+        }
         
-        </script>
+        
+        
+            </script>
     </body>
 </html>

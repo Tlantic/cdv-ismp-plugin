@@ -37,6 +37,10 @@
 }
 
 
+- (void)setDelegate:(id<iSMPDelegate>)callbackRef {
+    _hook = callbackRef;
+}
+
 //Network Gateway
 -(void)setConnectionState:(BOOL)state
 {
@@ -46,6 +50,7 @@
         NSLog(@"[setConnectionState] # Network Channel Not ready");
     }
     connected = state;
+    [_hook dispatchConnectionStatus:state];
 }
 
 -(BOOL)getConnectionState
@@ -106,7 +111,7 @@
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        // do stuff
+        [self setConnectionState:YES];
     }];
 }
 
@@ -116,7 +121,7 @@
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        // do stuff/
+        [self setConnectionState:NO];
     }];
 }
 
@@ -126,7 +131,7 @@
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        // do stuff
+        [self setConnectionState:NO];
     }];
 }
 #pragma mark -
