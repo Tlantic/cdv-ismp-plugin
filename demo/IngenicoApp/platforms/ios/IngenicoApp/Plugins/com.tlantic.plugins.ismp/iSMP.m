@@ -109,6 +109,29 @@
 }
 
 
+// REFUND
+-(BOOL) refund: (NSString*)posId :(NSString*)receipt :(NSString*)amount  :(NSString*)originalDate  :(NSString*)originalTime {
+    int exitCode = 0;
+    purchaseDetails = nil;
+    xWriter= [[XMLWriter alloc] init];
+    
+    NSLog(@"- Sending Refund to iSMP...");
+    
+    // sending request
+    exitCode = [rPurchase fDll_RP_Refund:@"02" cReceiptCode:receipt cControlNumber:@"000" cAmount:amount cOriginalPOSIdent:posId cOriginalReceiptDate:originalDate cOriginalReceiptTime:originalTime xmlWriter:xWriter iMaxXMLResponseSize:65536];
+    NSLog(@"- Terminal refund received: %d", exitCode);
+    
+    // storing details
+    refundDetails = [xWriter toString];
+    NSLog(@"- Received buffer: %@", refundDetails);
+    
+    return (exitCode == 0 ? YES : NO);
+}
+
+-(NSString *) getRefundDetails {
+    return refundDetails;
+}
+
 
 #pragma mark ICNetworkDelegate Protocol Implementation
 

@@ -9,5 +9,6 @@
 -(void) isTerminalConnected: (CDVInvokedUrlCommand *) command;
 -(void) getTerminalStatus: (CDVInvokedUrlCommand *) command;
 -(void) doPurchase: (CDVInvokedUrlCommand *) command;
+-(void) doRefund: (CDVInvokedUrlCommand *) command;
 
 @end

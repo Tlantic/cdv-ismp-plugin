@@ -30,6 +30,11 @@ iSMP.prototype.getStatus =  function (successCallback, errorCallback) {
 iSMP.prototype.purchase = function (receiptCode, amount, successCallback, errorCallback) {
 	exec(successCallback, errorCallback, this.pluginRef, 'doPurchase', [receiptCode, amount]);
 };
+
+// refund operation
+iSMP.prototype.refund = function (posId, receiptCode, amount, originalDate, originalTime, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, this.pluginRef, 'doRefund', [posId, receiptCode, amount, originalDate, originalTime]);
+};
 			   
 // triggers connection changes
 iSMP.prototype.yieldConnectionChange = function (connected) {

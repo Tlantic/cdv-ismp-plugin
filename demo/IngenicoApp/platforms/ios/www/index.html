@@ -38,6 +38,7 @@
             <button onclick="isConnected()">Is Connected?</button><br><br>
             <button onclick="getStatus()">Get Terminal Status</button><br><br>
             <button onclick="doPurchase()">Do Purchase</button><br><br>
+            <button onclick="doRefund()">Do Refund</button><br><br>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -64,11 +65,15 @@
         }
         
         function doPurchase () {
-            window.tlantic.plugins.ismp.purchase("666", "199", stub, stub);
+            window.tlantic.plugins.ismp.purchase("1", "69", stub, stub);
         }
-        
-        
-        
+
+        function doRefund () {
+            window.tlantic.plugins.ismp.refund("00007543", "1", "12/05/2014", "01:02:03", stub, stub);
+        }
+
+
+
             </script>
     </body>
 </html>
