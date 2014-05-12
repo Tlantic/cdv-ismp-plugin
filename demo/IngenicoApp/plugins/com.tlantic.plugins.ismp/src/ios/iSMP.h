@@ -12,6 +12,7 @@
 @private
     BOOL connected;
     NSString* statusDetails;
+    NSSTring* purchaseDetails;
 }
 
 // iSMP fw instance
@@ -32,6 +33,9 @@
 
 -(BOOL) getStatus;
 -(NSString *) getStatusDetails;
+
+-(BOOL) purchase: (NSString*)receipt :(NSString*)amount;
+-(NSString *) getPurchaseDetails;
 
 - (void)setDelegate:(id<iSMPDelegate>)callbackRef;
 

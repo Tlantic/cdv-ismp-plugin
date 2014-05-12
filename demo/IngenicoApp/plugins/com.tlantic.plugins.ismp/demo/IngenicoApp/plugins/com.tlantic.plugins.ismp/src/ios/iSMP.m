@@ -2,6 +2,7 @@
 
 @implementation iSMP: NSObject
 
+@synthesize xWriter;
 @synthesize rPurchase;
 @synthesize network;
 @synthesize control;
@@ -36,58 +37,101 @@
 }
 
 
+- (void)setDelegate:(id<iSMPDelegate>)callbackRef {
+    _hook = callbackRef;
+}
+
 //Network Gateway
--(void)setConnectionState:(BOOL)state {
+-(void)setConnectionState:(BOOL)state
+{
     if (state == YES) {
-        NSLog(@"- Network Channel Ready");
+        NSLog(@"[setConnectionState] # Network Channel Ready");
     } else {
-        NSLog(@"- Network Channel Not ready");
+        NSLog(@"[setConnectionState] # Network Channel Not ready");
     }
     connected = state;
+    [_hook dispatchConnectionStatus:state];
+}
+
+-(BOOL)getConnectionState
+{
+    return connected;
+}
+
+
+// TERMINAL STATUS
+-(BOOL) getStatus
+{
+    int exitCode = 0;
+    statusDetails = nil;
+    xWriter= [[XMLWriter alloc] init];
+
+    NSLog(@"- Sending Terminal Status to iSMP...");
+    
+    // sending request
+    exitCode = [rPurchase fDll_RP_TerminalStatus:@"03" cECRModel:@"MM" cECRSpecVersion:@"0114" xmlWriter:xWriter iMaxXMLResponseSize:65536];
+    NSLog(@"- Terminal status received: %d", exitCode);
+    
+    // storing details
+    statusDetails = [xWriter toString];
+    NSLog(@"- Received buffer: %@", statusDetails);
+    
+    return (exitCode == 0 ? YES : NO);
+}
+
+-(NSString *) getStatusDetails
+{
+    return statusDetails;
 }
 
 
 
 #pragma mark ICNetworkDelegate Protocol Implementation
 
--(void)networkData:(NSData *)data incoming:(BOOL)isIncoming {
+-(void)networkData:(NSData *)data incoming:(BOOL)isIncoming
+{
 	NSString * log = [NSString stringWithFormat:@"[Data: %@, Length: %d]\r\n\t%@\r\n", (isIncoming==YES?@"Network -> iPhone":@"iPhone -> Network"), [data length], [data hexDump]];
 	NSLog(@"%@", log);
 }
 
--(void)networkWillConnectToHost:(NSString *)host onPort:(NSUInteger)port {
+-(void)networkWillConnectToHost:(NSString *)host onPort:(NSUInteger)port
+{
     NSString * logMessage = [NSString stringWithFormat:@"Trying to connect to %@:%d", host, port];
     NSLog(@"%@", logMessage);
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^
+    {
         // do stuff
     }];
 }
 
--(void)networkDidConnectToHost:(NSString *)host onPort:(NSUInteger)port {
+-(void)networkDidConnectToHost:(NSString *)host onPort:(NSUInteger)port
+{
     NSString * logMessage = [NSString stringWithFormat:@"Connected to %@:%d", host, port];
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        // do stuff
+        [self setConnectionState:YES];
     }];
 }
 
--(void)networkFailedToConnectToHost:(NSString *)host onPort:(NSUInteger)port {
+-(void)networkFailedToConnectToHost:(NSString *)host onPort:(NSUInteger)port
+{
     NSString * logMessage = [NSString stringWithFormat:@"Failed to connect to %@:%d", host, port];
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        // do stuff/
+        [self setConnectionState:NO];
     }];
 }
 
--(void)networkDidDisconnectFromHost:(NSString *)host onPort:(NSUInteger)port {
+-(void)networkDidDisconnectFromHost:(NSString *)host onPort:(NSUInteger)port
+{
     NSString * logMessage = [NSString stringWithFormat:@"Disconnected from %@:%d", host, port];
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        // do stuff
+        [self setConnectionState:NO];
     }];
 }
 #pragma mark -
@@ -98,23 +142,27 @@
 #pragma mark ICDeviceDelegate Protocol Implementation
 
 // this method write traces to iPod's console (viewable within Xcode, Organizer or iPhone Configuration Utility)
--(void)logEntry:(NSString *)message withSeverity:(int)severity {
+-(void)logEntry:(NSString *)message withSeverity:(int)severity
+{
     NSLog(@"%s [%@][%@]", __FUNCTION__, [ICISMPDevice severityLevelString:severity], message);
 }
 
 // this method logs serial data exchanged between iPhone and iSMP
--(void)logSerialData:(NSData *)data incomming:(BOOL)isIncoming {
+-(void)logSerialData:(NSData *)data incomming:(BOOL)isIncoming
+{
     NSLog(@"%s [Length: %d] %@", __FUNCTION__, [data length], [data hexDump]);
 }
 
-// 
--(void)accessoryDidConnect:(ICISMPDevice *)sender {
+// network gateway awareness
+-(void)accessoryDidConnect:(ICISMPDevice *)sender
+{
     if (sender == network) {
         [self setConnectionState:YES];
     }
 }
 
--(void)accessoryDidDisconnect:(ICISMPDevice *)sender {
+-(void)accessoryDidDisconnect:(ICISMPDevice *)sender
+{
     if (sender == network) {
         [self setConnectionState:NO];
     }
@@ -125,7 +173,8 @@
 
 #pragma mark ICAdministrationDelegate
 
--(void)confLogEntry:(NSString *)message withSeverity:(int)severity {
+-(void)confLogEntry:(NSString *)message withSeverity:(int)severity
+{
     NSLog(@"%s [%@][%@]", __FUNCTION__, [ICISMPDevice severityLevelString:severity], message);
 }
 

@@ -7,6 +7,12 @@
         "files": {
             "framework": {
                 "parents": {
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
                     "CFNetwork.framework": [
                         {
                             "xml": "false",
@@ -19,12 +25,7 @@
                             "count": 1
                         }
                     ],
-                    "SystemConfiguration.framework": [
-                        {
-                            "xml": "false",
-                            "count": 1
-                        }
-                    ]
+                    "AudioToolbox.framework": []
                 }
             },
             "config.xml": {
@@ -40,6 +41,10 @@
             "*-Info.plist": {
                 "parents": {
                     "UISupportedExternalAccessoryProtocols": [
+                        {
+                            "xml": "<string>WORKAROUND</string>",
+                            "count": 1
+                        },
                         {
                             "xml": "<array><string>com.ingenico.easypayemv.printer</string><string>com.ingenico.easypayemv.barcodereader</string><string>com.ingenico.easypayemv.spm-transaction</string><string>com.ingenico.easypayemv.spm-configuration</string><string>com.ingenico.easypayemv.spm-networkaccess</string></array>",
                             "count": 1

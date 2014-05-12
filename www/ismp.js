@@ -1,4 +1,4 @@
- /* global module, require */
+/* global module, require */
 'use strict';
 
 var exec = require('cordova/exec');

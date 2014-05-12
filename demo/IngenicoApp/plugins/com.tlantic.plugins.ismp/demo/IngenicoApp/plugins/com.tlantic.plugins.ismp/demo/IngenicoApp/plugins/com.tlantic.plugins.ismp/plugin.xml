@@ -20,6 +20,11 @@
             </feature>
         </config-file>
 
+        <!-- workaround for duped entries on PLIST # cordova issue # https://issues.apache.org/jira/browse/CB-4731 -->
+        <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+            <string>WORKAROUND</string>
+        </config-file>
+
         <!--this need to be added to the .plist file-->
         <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
             <array>

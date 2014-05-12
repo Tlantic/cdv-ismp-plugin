@@ -86,11 +86,6 @@
       <string>com.ingenico.easypayemv.spm-transaction</string>
       <string>com.ingenico.easypayemv.spm-configuration</string>
       <string>com.ingenico.easypayemv.spm-networkaccess</string>
-      <string>com.ingenico.easypayemv.printer</string>
-      <string>com.ingenico.easypayemv.barcodereader</string>
-      <string>com.ingenico.easypayemv.spm-transaction</string>
-      <string>com.ingenico.easypayemv.spm-configuration</string>
-      <string>com.ingenico.easypayemv.spm-networkaccess</string>
     </array>
   </dict>
 </plist>

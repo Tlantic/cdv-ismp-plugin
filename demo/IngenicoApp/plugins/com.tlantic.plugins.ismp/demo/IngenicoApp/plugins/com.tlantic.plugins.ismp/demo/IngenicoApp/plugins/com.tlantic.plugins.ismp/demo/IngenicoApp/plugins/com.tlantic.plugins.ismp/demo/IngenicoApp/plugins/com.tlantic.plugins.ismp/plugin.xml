@@ -20,11 +20,12 @@
             </feature>
         </config-file>
 
-        <!-- SSH framework 
-        <framework src="libz.dylib" />
+        <!-- iSMP Frameworks -->
         <framework src="CFNetwork.framework" />
-        <framework src="src/ios/frameworks/NMSSH.framework" custom="true" />
--->
+        <framework src="ExternalAccessory.framework" />
+        <framework src="src/ios/frameworks/iSMP.framework" custom="true" />
+        <framework src="src/ios/frameworks/iSMP.RPurchase.framework" custom="true" />
+
         <!-- Plugin Code / Cordova "Interface" -->
         <header-file src="src/ios/CDViSMPPlugin.h" />
         <source-file src="src/ios/CDViSMPPlugin.m" />

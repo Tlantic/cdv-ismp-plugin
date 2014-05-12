@@ -1,4 +1,4 @@
-/* global module, require */
+ /* global module, require */
 'use strict';
 
 var exec = require('cordova/exec');
@@ -24,6 +24,11 @@ iSMP.prototype.isConnected =  function (successCallback, errorCallback) {
 // return terminal status
 iSMP.prototype.getStatus =  function (successCallback, errorCallback) {
 	exec(successCallback, errorCallback, this.pluginRef, 'getTerminalStatus', []);
+};
+               
+// puchase operation
+iSMP.prototype.purchase = function (receiptCode, amount, successCallback, errorCallback) {
+	exec(successCallback, errorCallback, this.pluginRef, 'doPurchase', [receiptCode, amount]);
 };
 			   
 // triggers connection changes

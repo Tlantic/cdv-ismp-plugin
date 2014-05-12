@@ -37,6 +37,7 @@
             <button onclick="load()">Load terminal</button><br><br>
             <button onclick="isConnected()">Is Connected?</button><br><br>
             <button onclick="getStatus()">Get Terminal Status</button><br><br>
+            <button onclick="doPurchase()">Do Purchase</button><br><br>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -60,6 +61,10 @@
         
         function getStatus (){
             window.tlantic.plugins.ismp.getStatus(stub, stub);
+        }
+        
+        function doPurchase () {
+            window.tlantic.plugins.ismp.doPurchase("666", "199", stub, stub);
         }
         
         
