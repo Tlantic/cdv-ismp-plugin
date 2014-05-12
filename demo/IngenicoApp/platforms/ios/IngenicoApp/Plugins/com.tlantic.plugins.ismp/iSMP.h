@@ -14,6 +14,8 @@
     NSString* statusDetails;
     NSString* purchaseDetails;
     NSString* refundDetails;
+    NSString* openDetails;
+    NSString* closeDetails;
 }
 
 // iSMP fw instance
@@ -40,6 +42,12 @@
 
 -(BOOL) refund: (NSString*)posId    :(NSString*)receipt :(NSString*)amount  :(NSString*)originalDate    :(NSString*)originalTime;
 -(NSString *) getRefundDetails;
+
+-(BOOL) openPeriod: (NSString*)receipt;
+-(NSString *) getOpenDetails;
+
+-(BOOL) closePeriod: (NSString*)receipt;
+-(NSString *) getCloseDetails;
 
 - (void)setDelegate:(id<iSMPDelegate>)callbackRef;
 

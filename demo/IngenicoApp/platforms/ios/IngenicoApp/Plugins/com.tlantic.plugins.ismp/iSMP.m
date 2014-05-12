@@ -132,6 +132,52 @@
     return refundDetails;
 }
 
+// OPEN ACCOUNT PERIOD
+-(BOOL) openPeriod: (NSString*)receipt {
+    int exitCode = 0;
+    openDetails = nil;
+    xWriter= [[XMLWriter alloc] init];
+    
+    NSLog(@"- Sending OpenAccountPeriod to iSMP...");
+    
+    // sending request
+    exitCode = [rPurchase fDll_RP_OpenAccountingPeriod:@"02" cReceiptCode:receipt cControlNumber:@"000" xmlWriter:xWriter iMaxXMLResponseSize:65536];
+    NSLog(@"- Terminal OpenAccountPeriod received: %d", exitCode);
+    
+    // storing details
+    openDetails = [xWriter toString];
+    NSLog(@"- Received buffer: %@", openDetails);
+    
+    return (exitCode == 0 ? YES : NO);
+}
+
+-(NSString *) getOpenDetails {
+    return openDetails;
+}
+
+// CLOSE ACCOUNT PERIOD
+-(BOOL) closePeriod: (NSString*)receipt  {
+    int exitCode = 0;
+    closeDetails = nil;
+    xWriter= [[XMLWriter alloc] init];
+    
+    NSLog(@"- Sending CloseAccountPeriod to iSMP...");
+    
+    // sending request
+    exitCode = [rPurchase fDll_RP_CloseAccountingPeriod:@"02" cReceiptCode:receipt cControlNumber:@"000" xmlWriter:xWriter iMaxXMLResponseSize:65536];
+    NSLog(@"- Terminal CloseAccountPeriod received: %d", exitCode);
+    
+    // storing details
+    closeDetails = [xWriter toString];
+    NSLog(@"- Received buffer: %@", closeDetails);
+    
+    return (exitCode == 0 ? YES : NO);
+}
+
+-(NSString *) getCloseDetails {
+    return closeDetails;
+}
+
 
 #pragma mark ICNetworkDelegate Protocol Implementation
 

@@ -39,6 +39,8 @@
             <button onclick="getStatus()">Get Terminal Status</button><br><br>
             <button onclick="doPurchase()">Do Purchase</button><br><br>
             <button onclick="doRefund()">Do Refund</button><br><br>
+            <button onclick="doOpen()">Open Period</button><br><br>
+            <button onclick="doClose()">Close Period</button><br><br>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -72,6 +74,13 @@
             window.tlantic.plugins.ismp.refund("00007543", "1", "12/05/2014", "01:02:03", stub, stub);
         }
 
+        function doOpen () {
+            window.tlantic.plugins.ismp.openAP("1", stub, stub);
+        }
+        
+        function doClose () {
+            window.tlantic.plugins.ismp.closeAP("1", stub, stub);
+        }
 
 
             </script>

@@ -35,7 +35,18 @@ iSMP.prototype.purchase = function (receiptCode, amount, successCallback, errorC
 iSMP.prototype.refund = function (posId, receiptCode, amount, originalDate, originalTime, successCallback, errorCallback) {
     exec(successCallback, errorCallback, this.pluginRef, 'doRefund', [posId, receiptCode, amount, originalDate, originalTime]);
 };
-			   
+
+// open accounting period
+iSMP.prototype.openAP = function (receiptCode, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, this.pluginRef, 'openAP', [receiptCode]);
+};
+
+// close accounting period
+iSMP.prototype.closeAP = function (receiptCode, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, this.pluginRef, 'closeAP', [receiptCode]);
+};
+               
+               
 // triggers connection changes
 iSMP.prototype.yieldConnectionChange = function (connected) {
 	var status = (connected === "YES"),

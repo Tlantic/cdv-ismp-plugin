@@ -200,6 +200,102 @@
 }
 
 
+-(void) openAP: (CDVInvokedUrlCommand *) command
+{
+    // validating parameters
+    if ([command.arguments count] < 1) {
+        
+        // triggering parameter error
+        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Missing arguments when calling 'openAP' action."];
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    } else {
+        
+        // running in background to avoid thread locks
+        [self.commandDelegate runInBackground:^{
+            
+            CDVPluginResult* result = nil;
+            CDVCommandStatus status;
+            NSString* receiptCode = [command.arguments objectAtIndex:0];
+            NSString* details = nil;
+            
+            NSLog(@"- Checking terminal connection...");
+            
+            if ([terminal getConnectionState]) {
+                
+                
+                // purchasing
+                NSLog(@"- Opening accounting period receipt...");
+                
+                if ([terminal openPeriod:receiptCode]) {
+                    status = CDVCommandStatus_OK;
+                } else {
+                    status = CDVCommandStatus_ERROR;
+                }
+                
+                // getting returned info
+                details = [terminal getOpenDetails];
+                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+            } else {
+                NSLog(@"- Terminal is not connected!");
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Terminal is not connected!"];
+            }
+            
+            // resolving cordova callback stack
+            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+        }];
+    }
+}
+
+-(void) closeAP: (CDVInvokedUrlCommand *) command
+{
+    // validating parameters
+    if ([command.arguments count] < 1) {
+        
+        // triggering parameter error
+        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Missing arguments when calling 'closeAP' action."];
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    } else {
+        
+        // running in background to avoid thread locks
+        [self.commandDelegate runInBackground:^{
+            
+            CDVPluginResult* result = nil;
+            CDVCommandStatus status;
+            NSString* receiptCode = [command.arguments objectAtIndex:0];
+            NSString* details = nil;
+            
+            NSLog(@"- Checking terminal connection...");
+            
+            if ([terminal getConnectionState]) {
+                
+                
+                // purchasing
+                NSLog(@"- Closing accounting period receipt...");
+                
+                if ([terminal openPeriod:receiptCode]) {
+                    status = CDVCommandStatus_OK;
+                } else {
+                    status = CDVCommandStatus_ERROR;
+                }
+                
+                // getting returned info
+                details = [terminal getCloseDetails];
+                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+            } else {
+                NSLog(@"- Terminal is not connected!");
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Terminal is not connected!"];
+            }
+            
+            // resolving cordova callback stack
+            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+        }];
+    }
+}
+
+
+
 -(void) dispatchConnectionStatus :(BOOL) status {
     
     // handling escape chars

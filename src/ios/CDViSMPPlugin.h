@@ -10,5 +10,7 @@
 -(void) getTerminalStatus: (CDVInvokedUrlCommand *) command;
 -(void) doPurchase: (CDVInvokedUrlCommand *) command;
 -(void) doRefund: (CDVInvokedUrlCommand *) command;
+-(void) openAP: (CDVInvokedUrlCommand *) command;
+-(void) closeAP: (CDVInvokedUrlCommand *) command;
 
 @end
