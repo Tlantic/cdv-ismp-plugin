@@ -1,0 +1,19 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "config.xml": {
+            "/*": {
+                "<feature name=\"iSMP\"><param name=\"ios-package\" value=\"CDViSMPPlugin\" /></feature>": 1
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.tlantic.plugins.ismp": {
+            "PACKAGE_NAME": "com.tlantic.demo.ingenico"
+        }
+    },
+    "dependent_plugins": {}
+}

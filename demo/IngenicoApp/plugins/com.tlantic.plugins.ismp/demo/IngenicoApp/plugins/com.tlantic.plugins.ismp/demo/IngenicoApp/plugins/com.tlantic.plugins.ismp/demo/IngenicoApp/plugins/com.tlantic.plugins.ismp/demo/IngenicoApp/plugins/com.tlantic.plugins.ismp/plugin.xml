@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="com.tlantic.plugins.ismp"
+    version="0.1.0">
+    <name>iSMP</name>
+    <description>Tlantic Ingenico plugin for iSMP</description>
+    <license>GPL</license>
+    <keywords>cordova, tlantic, ingenico, payment, ismp</keywords>
+
+    <!-- www -->
+    <js-module src="www/ismp.js" name="iSMP">
+        <clobbers target="window.tlantic.plugins.ismp" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="iSMP">
+                <param name="ios-package" value="CDViSMPPlugin" />
+            </feature>
+        </config-file>
+
+        <!-- iSMP Frameworks -->
+        <framework src="CFNetwork.framework" />
+        <framework src="ExternalAccessory.framework" />
+        <framework src="src/ios/frameworks/iSMP.framework" custom="true" />
+        <framework src="src/ios/frameworks/iSMP.RPurchase.framework" custom="true" />
+
+        <!-- Plugin Code / Cordova "Interface" -->
+        <header-file src="src/ios/CDViSMPPlugin.h" />
+        <source-file src="src/ios/CDViSMPPlugin.m" />
+
+        <!-- iSMP / Ingenico code interface -->
+        <header-file src="src/ios/iSMP.h" />
+        <source-file src="src/ios/iSMP.m" />
+    </platform>
+
+</plugin>
