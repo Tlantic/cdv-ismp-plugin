@@ -85,6 +85,30 @@
 }
 
 
+// PURCHASE
+-(BOOL) purchase: (NSString*)receipt :(NSString*)amount {
+    int exitCode = 0;
+    purchaseDetails = nil;
+    xWriter= [[XMLWriter alloc] init];
+    
+    NSLog(@"- Sending Purchase to iSMP...");
+    
+    // sending request
+    exitCode = [rPurchase fDll_RP_Purchase:@"02" cReceiptCode:receipt cControlNumber:@"000" cAmount:amount xmlWriter:_xmlWriter iMaxXMLResponseSize:65536];
+    NSLog(@"- Terminal purchase received: %d", exitCode);
+    
+    // storing details
+    purchaseDetails = [xWriter toString];
+    NSLog(@"- Received buffer: %@", purchaseDetails);
+    
+    return (exitCode == 0 ? YES : NO);
+}
+
+-(NSString *) getPurchaseDetails {
+    return purchaseDetails;
+}
+
+
 
 #pragma mark ICNetworkDelegate Protocol Implementation
 

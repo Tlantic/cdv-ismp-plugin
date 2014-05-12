@@ -98,6 +98,57 @@
     }];
 }
 
+
+-(void) doPurchase: (CDVInvokedUrlCommand *) command
+{
+    // validating parameters
+    if ([command.arguments count] < 2) {
+        
+        // triggering parameter error
+        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Missing arguments when calling 'doPurchase' action."];
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    } else {
+        
+        // running in background to avoid thread locks
+        [self.commandDelegate runInBackground:^{
+        
+            CDVPluginResult* result = nil;
+            CDVCommandStatus status;
+            NSString* receiptCode = [command.arguments objectAtIndex:0];
+            NSString* amount = [command.arguments objectAtIndex:0];
+            NSString* details = nil;
+        
+            NSLog(@"- Checking terminal connection...");
+            
+            if ([terminal getConnectionState]) {
+            
+                
+                // purchasing
+                NSLog(@"- Purchasing receipt...");
+            
+                if ([terminal purchase:receiptCode  amount:amount]) {
+                    status = CDVCommandStatus_OK;
+                } else {
+                    status = CDVCommandStatus_ERROR;
+                }
+            
+                // getting returned info
+                details = [terminal getPurchaseDetails];
+                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+            
+            } else {
+                NSLog(@"- Terminal is not connected!");
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Terminal is not connected!"];
+            }
+            */
+            // resolving cordova callback stack
+            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+        }];
+    }
+}
+
+
+
 -(void) dispatchConnectionStatus :(BOOL) status {
     
     // handling escape chars
