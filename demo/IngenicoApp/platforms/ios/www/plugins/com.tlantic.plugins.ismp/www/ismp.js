@@ -46,6 +46,11 @@ iSMP.prototype.closeAP = function (receiptCode, successCallback, errorCallback) 
     exec(successCallback, errorCallback, this.pluginRef, 'closeAP', [receiptCode]);
 };
                
+// returns POS id - need to call getTerminalStatus before
+iSMP.prototype.getPOSId = function (successCallback, errorCallback) {
+    exec(successCallback, errorCallback, this.pluginRef, 'getPOSId', []);
+};
+               
                
 // triggers connection changes
 iSMP.prototype.yieldConnectionChange = function (connected) {

@@ -74,6 +74,7 @@
     
     // storing details
     statusDetails = [xWriter toString];
+        
     NSLog(@"- Received buffer: %@", statusDetails);
     
     return (exitCode == 0 ? YES : NO);
@@ -204,7 +205,7 @@
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        [self setConnectionState:YES];
+        NSLog(@"### NETWORK DID CONNECT TO HOST");
     }];
 }
 
@@ -214,7 +215,7 @@
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        [self setConnectionState:NO];
+        NSLog(@"### NETWORK FAILED TO CONNECT TO HOST");
     }];
 }
 
@@ -224,7 +225,7 @@
     NSLog(@"%@", logMessage);
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        [self setConnectionState:NO];
+        NSLog(@"### NETWORK DID DISCONNECT TO HOST");
     }];
 }
 #pragma mark -
