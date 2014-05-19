@@ -85,7 +85,18 @@
         
             // getting returned info
             details = [terminal getStatusDetails];
-            result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+            
+            // parsing status
+            NSString *respcode = [self extractNode:details :@"ResponseCode"];
+            NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+            NSString *posId = [self extractNode:details :@"POSIdentification"];
+            
+            // building result
+            NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\", \"posId\": \"%@\" }", respcode, opmessage, posId];
+            
+            
+            
+            result = [CDVPluginResult resultWithStatus:status messageAsString:response];
             
         } else {
             NSLog(@"- Terminal is not connected!");
@@ -333,7 +344,7 @@
                 // purchasing
                 NSLog(@"- Closing accounting period receipt...");
                 
-                if ([terminal openPeriod:receiptCode]) {
+                if ([terminal closePeriod:receiptCode]) {
                     status = CDVCommandStatus_OK;
                 } else {
                     status = CDVCommandStatus_ERROR;
@@ -342,6 +353,7 @@
                 // getting returned info
                 details = [terminal getCloseDetails];
                 result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
                 
             } else {
                 NSLog(@"- Terminal is not connected!");
