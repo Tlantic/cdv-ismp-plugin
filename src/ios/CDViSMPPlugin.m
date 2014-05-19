@@ -303,9 +303,18 @@
                     status = CDVCommandStatus_ERROR;
                 }
                 
-                // getting returned info
+                // parsing returned info
                 details = [terminal getOpenDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // building JSON
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+            
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+
+                
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
                 
             } else {
                 NSLog(@"- Terminal is not connected!");
@@ -350,9 +359,17 @@
                     status = CDVCommandStatus_ERROR;
                 }
                 
-                // getting returned info
+                // parsing  returned info
                 details = [terminal getCloseDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // building JSON
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+                
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
                 
                 
             } else {
