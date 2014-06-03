@@ -1,4 +1,4 @@
-/* global module, require */
+cordova.define("com.tlantic.plugins.ismp.iSMP", function(require, exports, module) {  /* global module, require */
 'use strict';
 
 var exec = require('cordova/exec');
@@ -8,6 +8,7 @@ function iSMP() {
 	this.pluginRef = 'iSMP';                              // *** Plugin reference for Cordova.exec calls ***/
 	this.connectionEvent = 'iSMP_CON_STATUS_CHANGE';
 }
+
 
 // connect-load method
 iSMP.prototype.load = function (successCallback, errorCallback) {
@@ -49,7 +50,8 @@ iSMP.prototype.closeAP = function (receiptCode, successCallback, errorCallback) 
 iSMP.prototype.getPOSId = function (successCallback, errorCallback) {
     exec(successCallback, errorCallback, this.pluginRef, 'getPOSId', []);
 };
-                              
+               
+               
 // triggers connection changes
 iSMP.prototype.yieldConnectionChange = function (connected) {
 	var status = (connected === "YES"),
@@ -62,3 +64,4 @@ iSMP.prototype.yieldConnectionChange = function (connected) {
 };
 
 module.exports = new iSMP();
+});

@@ -205,7 +205,14 @@
             
                 // getting returned info
                 details = [terminal getPurchaseDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // building JSON
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+                
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
             
             } else {
                 NSLog(@"- Terminal is not connected!");
@@ -257,7 +264,15 @@
                 
                 // getting returned info
                 details = [terminal getRefundDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // parsing status
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+                
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
                 
             } else {
                 NSLog(@"- Terminal is not connected!");
