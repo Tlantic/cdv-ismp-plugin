@@ -9,6 +9,9 @@ function iSMP() {
 	this.connectionEvent = 'iSMP_CON_STATUS_CHANGE';
 }
 
+function padDigits(number, digits) {
+    return Array(Math.max(digits - number.length + 1, 0)).join(0) + number;
+}
 
 // connect-load method
 iSMP.prototype.load = function (successCallback, errorCallback) {
@@ -28,12 +31,12 @@ iSMP.prototype.getStatus =  function (successCallback, errorCallback) {
                
 // puchase operation
 iSMP.prototype.purchase = function (receiptCode, amount, successCallback, errorCallback) {
-	exec(successCallback, errorCallback, this.pluginRef, 'doPurchase', [receiptCode, amount]);
+	exec(successCallback, errorCallback, this.pluginRef, 'doPurchase', [receiptCode, padDigits(amount, 8)]);
 };
 
 // refund operation
 iSMP.prototype.refund = function (posId, receiptCode, amount, originalDate, originalTime, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, this.pluginRef, 'doRefund', [posId, receiptCode, amount, originalDate, originalTime]);
+    exec(successCallback, errorCallback, this.pluginRef, 'doRefund', [posId, receiptCode, padDigits(amount,8), originalDate, originalTime]);
 };
 
 // open accounting period
