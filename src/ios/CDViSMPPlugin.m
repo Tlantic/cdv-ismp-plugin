@@ -4,7 +4,6 @@
 
 @synthesize terminal;
 
-
 -(void) loadTerminal: (CDVInvokedUrlCommand *) command {
     
     // running in background to avoid thread locks
@@ -35,8 +34,7 @@
     }];
 }
 
--(void) isTerminalConnected: (CDVInvokedUrlCommand *) command
-{
+-(void) isTerminalConnected: (CDVInvokedUrlCommand *) command {
     // running in background to avoid thread locks
     [self.commandDelegate runInBackground:^{
         
@@ -62,8 +60,7 @@
     }];
 }
 
--(void) getTerminalStatus: (CDVInvokedUrlCommand *) command
-{
+-(void) getTerminalStatus: (CDVInvokedUrlCommand *) command {
     // running in background to avoid thread locks
     [self.commandDelegate runInBackground:^{
  
@@ -129,8 +126,7 @@
     }
 }
 
--(void) getPOSId: (CDVInvokedUrlCommand *) command
-{
+-(void) getPOSId: (CDVInvokedUrlCommand *) command {
     // running in background to avoid thread locks
     [self.commandDelegate runInBackground:^{
         
@@ -169,9 +165,7 @@
     }];
 }
 
-
--(void) doPurchase: (CDVInvokedUrlCommand *) command
-{
+-(void) doPurchase: (CDVInvokedUrlCommand *) command {
     // validating parameters
     if ([command.arguments count] < 2) {
         
@@ -211,7 +205,7 @@
                 NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
                 
                 // building result
-                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                NSString *response = [NSString stringWithFormat:@"\"{\"status\": \"%@\", \"message\": \"%@\"}\"", respcode, opmessage];
                 result = [CDVPluginResult resultWithStatus:status messageAsString:response];
             
             } else {
@@ -225,9 +219,7 @@
     }
 }
 
-
--(void) doRefund: (CDVInvokedUrlCommand *) command
-{
+-(void) doRefund: (CDVInvokedUrlCommand *) command {
     // validating parameters
     if ([command.arguments count] < 5) {
         
@@ -285,9 +277,7 @@
     }
 }
 
-
--(void) openAP: (CDVInvokedUrlCommand *) command
-{
+-(void) openAP: (CDVInvokedUrlCommand *) command {
     // validating parameters
     if ([command.arguments count] < 1) {
         
@@ -342,8 +332,7 @@
     }
 }
 
--(void) closeAP: (CDVInvokedUrlCommand *) command
-{
+-(void) closeAP: (CDVInvokedUrlCommand *) command {
     // validating parameters
     if ([command.arguments count] < 1) {
         
@@ -397,8 +386,6 @@
         }];
     }
 }
-
-
 
 -(void) dispatchConnectionStatus :(BOOL) status {
     
