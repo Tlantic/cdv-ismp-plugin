@@ -85,7 +85,78 @@
         
             // getting returned info
             details = [terminal getStatusDetails];
-            result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+            
+            // parsing status
+            NSString *respcode = [self extractNode:details :@"ResponseCode"];
+            NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+            NSString *posId = [self extractNode:details :@"POSIdentification"];
+            
+            // building result
+            NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\", \"posId\": \"%@\" }", respcode, opmessage, posId];
+            
+            
+            
+            result = [CDVPluginResult resultWithStatus:status messageAsString:response];
+            
+        } else {
+            NSLog(@"- Terminal is not connected!");
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Terminal is not connected!"];
+            
+        }
+        
+        // resolving cordova callback stack
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    }];
+}
+
+-(NSString*) extractNode: (NSString*)chunk :(NSString*) node {
+
+    NSString* content = nil;
+
+    @try {
+        NSLog(@"- Parsing XML looking for %@ ...", node);
+        NSString* openTag  = [[@"<"  stringByAppendingString:node] stringByAppendingString:@">"];
+        NSString* closeTag = [[@"</" stringByAppendingString:node] stringByAppendingString:@">"];
+        
+        content = [[[[chunk componentsSeparatedByString:openTag] objectAtIndex:1] componentsSeparatedByString:closeTag] objectAtIndex:0];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"- Error parsing XML...");
+    }
+    @finally {
+        NSLog(@"- Parsing process completed!");
+        return content;
+    }
+}
+
+-(void) getPOSId: (CDVInvokedUrlCommand *) command
+{
+    // running in background to avoid thread locks
+    [self.commandDelegate runInBackground:^{
+        
+        CDVPluginResult* result = nil;
+        CDVCommandStatus status;
+        NSString* details = nil;
+        
+        NSLog(@"- Checking terminal connection...");
+        if ([terminal getConnectionState]) {
+            
+            // getting status
+            NSLog(@"- Getting status from terminal...");
+            
+            if ([terminal getStatus]) {
+                status = CDVCommandStatus_OK;
+            } else {
+                status = CDVCommandStatus_ERROR;
+            }
+            
+            // getting returned info
+            details = [terminal getStatusDetails];
+            
+            // parsing POS Id
+            NSString* posid = [self extractNode:details :@"POSIdentification"];
+            
+            result = [CDVPluginResult resultWithStatus:status messageAsString:posid];
             
         } else {
             NSLog(@"- Terminal is not connected!");
@@ -134,7 +205,14 @@
             
                 // getting returned info
                 details = [terminal getPurchaseDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // building JSON
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+                
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
             
             } else {
                 NSLog(@"- Terminal is not connected!");
@@ -186,7 +264,15 @@
                 
                 // getting returned info
                 details = [terminal getRefundDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // parsing status
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+                
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
                 
             } else {
                 NSLog(@"- Terminal is not connected!");
@@ -232,9 +318,18 @@
                     status = CDVCommandStatus_ERROR;
                 }
                 
-                // getting returned info
+                // parsing returned info
                 details = [terminal getOpenDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // building JSON
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+            
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+
+                
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
                 
             } else {
                 NSLog(@"- Terminal is not connected!");
@@ -273,15 +368,24 @@
                 // purchasing
                 NSLog(@"- Closing accounting period receipt...");
                 
-                if ([terminal openPeriod:receiptCode]) {
+                if ([terminal closePeriod:receiptCode]) {
                     status = CDVCommandStatus_OK;
                 } else {
                     status = CDVCommandStatus_ERROR;
                 }
                 
-                // getting returned info
+                // parsing  returned info
                 details = [terminal getCloseDetails];
-                result = [CDVPluginResult resultWithStatus:status messageAsString:details];
+                
+                // building JSON
+                NSString *respcode = [self extractNode:details :@"ResponseCode"];
+                NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
+                
+                // building result
+                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                
+                result = [CDVPluginResult resultWithStatus:status messageAsString:response];
+                
                 
             } else {
                 NSLog(@"- Terminal is not connected!");

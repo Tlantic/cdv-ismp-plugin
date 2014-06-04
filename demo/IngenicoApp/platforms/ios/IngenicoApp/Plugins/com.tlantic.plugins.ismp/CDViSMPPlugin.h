@@ -13,4 +13,7 @@
 -(void) openAP: (CDVInvokedUrlCommand *) command;
 -(void) closeAP: (CDVInvokedUrlCommand *) command;
 
+-(NSString*) extractNode: (NSString*)chunk :(NSString*) node;
+-(void) getPOSId: (CDVInvokedUrlCommand *) command;
+
 @end
