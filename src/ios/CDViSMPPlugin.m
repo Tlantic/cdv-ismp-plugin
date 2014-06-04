@@ -89,7 +89,7 @@
             NSString *posId = [self extractNode:details :@"POSIdentification"];
             
             // building result
-            NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\", \"posId\": \"%@\" }", respcode, opmessage, posId];
+            NSString *response = [NSString stringWithFormat:@"\"{\"status\": \"%@\", \"message\": \"%@\", \"posId\": \"%@\" }\"", respcode, opmessage, posId];
             
             
             
@@ -262,7 +262,7 @@
                 NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
                 
                 // building result
-                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                NSString *response = [NSString stringWithFormat:@"\"{\"status\": \"%@\", \"message\": \"%@\" }\"", respcode, opmessage];
                 
                 result = [CDVPluginResult resultWithStatus:status messageAsString:response];
                 
@@ -316,7 +316,7 @@
                 NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
             
                 // building result
-                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                NSString *response = [NSString stringWithFormat:@"\{\"status\": \"%@\", \"message\": \"%@\"}\"", respcode, opmessage];
 
                 
                 result = [CDVPluginResult resultWithStatus:status messageAsString:response];
@@ -371,7 +371,7 @@
                 NSString *opmessage = [self extractNode:details :@"OperatorMessage"];
                 
                 // building result
-                NSString *response = [NSString stringWithFormat:@"{ \"status\": %@, \"message\": \"%@\" }", respcode, opmessage];
+                NSString *response = [NSString stringWithFormat:@"\{\"status\": \"%@\", \"message\": \"%@\" }\"", respcode, opmessage];
                 
                 result = [CDVPluginResult resultWithStatus:status messageAsString:response];
                 
